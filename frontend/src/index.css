@@ -1,0 +1,327 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Roboto:wght@400;500;700&display=swap');
+
+/* Aplicar fuentes globalmente */
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+/* Animaciones para Taki */
+@keyframes flotar {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  25% { 
+    transform: translateY(-10px) rotate(2deg); 
+  }
+  75% { 
+    transform: translateY(-5px) rotate(-2deg); 
+  }
+}
+
+@keyframes hablar-antiguo {
+  0%, 100% { 
+    transform: scale(1); 
+  }
+  50% { 
+    transform: scale(1.1); 
+  }
+}
+
+@keyframes latir {
+  0%, 100% { 
+    transform: scale(1); 
+  }
+  50% { 
+    transform: scale(1.05); 
+  }
+}
+
+.taki-character.flotando {
+  animation: flotar 3s ease-in-out infinite;
+}
+
+.taki-character.hablando {
+  animation: hablar-antiguo 0.5s ease-in-out;
+}
+
+.taki-character.latido {
+  animation: latir 1s ease-in-out;
+}
+
+/* Efectos de gradiente animado */
+.gradient-animate {
+  background: linear-gradient(-45deg, #10b981, #059669, #047857, #065f46);
+  background-size: 400% 400%;
+  animation: gradient 8s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Animaciones específicas para Taki Monito de la Selva */
+@keyframes flotar-selva {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  25% { 
+    transform: translateY(-8px) rotate(1deg); 
+  }
+  75% { 
+    transform: translateY(-4px) rotate(-1deg); 
+  }
+}
+
+@keyframes saltar-selva {
+  0%, 100% { 
+    transform: translateY(0); 
+  }
+  50% { 
+    transform: translateY(-25px); 
+  }
+}
+
+@keyframes bailar-selva {
+  0% { 
+    transform: rotate(0deg) translateY(0); 
+  }
+  25% { 
+    transform: rotate(8deg) translateY(-5px); 
+  }
+  50% { 
+    transform: rotate(0deg) translateY(0); 
+  }
+  75% { 
+    transform: rotate(-8deg) translateY(-5px); 
+  }
+  100% { 
+    transform: rotate(0deg) translateY(0); 
+  }
+}
+
+@keyframes celebrar-selva {
+  0% { 
+    transform: scale(1); 
+  }
+  25% { 
+    transform: scale(1.1) rotate(5deg); 
+  }
+  50% { 
+    transform: scale(1.05) rotate(-5deg); 
+  }
+  75% { 
+    transform: scale(1.1) rotate(5deg); 
+  }
+  100% { 
+    transform: scale(1); 
+  }
+}
+
+@keyframes señalar-selva {
+  0%, 100% { 
+    transform: translateX(0); 
+  }
+  50% { 
+    transform: translateX(10px); 
+  }
+}
+
+@keyframes mover-orejas {
+  0%, 100% { 
+    transform: scale(1); 
+  }
+  50% { 
+    transform: scale(1.1); 
+  }
+}
+
+@keyframes guiñar {
+  0%, 100% { 
+    transform: scaleY(1); 
+  }
+  50% { 
+    transform: scaleY(0.1); 
+  }
+}
+
+@keyframes sonreir {
+  0%, 100% { 
+    transform: scaleX(1); 
+  }
+  50% { 
+    transform: scaleX(1.2); 
+  }
+}
+
+@keyframes risa {
+  0%, 100% { 
+    transform: scaleX(1); 
+  }
+  25% { 
+    transform: scaleX(1.3); 
+  }
+  75% { 
+    transform: scaleX(0.9); 
+  }
+}
+
+@keyframes hablar-boca {
+  0%, 100% { 
+    transform: scaleX(1); 
+  }
+  50% { 
+    transform: scaleX(1.1); 
+  }
+}
+
+/* Alias para compatibilidad */
+@keyframes hablar {
+  0%, 100% { 
+    transform: scaleX(1); 
+  }
+  50% { 
+    transform: scaleX(1.1); 
+  }
+}
+
+@keyframes brazo-bailar {
+  0%, 100% { 
+    transform: rotate(0deg); 
+  }
+  25% { 
+    transform: rotate(-30deg); 
+  }
+  75% { 
+    transform: rotate(30deg); 
+  }
+}
+
+@keyframes brazo-señalar {
+  0%, 100% { 
+    transform: rotate(0deg) translateX(0); 
+  }
+  50% { 
+    transform: rotate(-45deg) translateX(-5px); 
+  }
+}
+
+.animate-flotar-selva {
+  animation: flotar-selva 3s ease-in-out infinite;
+}
+
+.animate-saltar-selva {
+  animation: saltar-selva 0.6s ease-in-out;
+}
+
+.animate-bailar-selva {
+  animation: bailar-selva 1s ease-in-out infinite;
+}
+
+.animate-celebrar-selva {
+  animation: celebrar-selva 0.8s ease-in-out;
+}
+
+.animate-señalar-selva {
+  animation: señalar-selva 1s ease-in-out infinite;
+}
+
+.animate-mover-orejas {
+  animation: mover-orejas 0.3s ease-in-out;
+}
+
+.animate-guiñar {
+  animation: guiñar 0.4s ease-in-out;
+}
+
+.animate-sonreir {
+  animation: sonreir 2s ease-in-out infinite;
+}
+
+.animate-risa {
+  animation: risa 0.5s ease-in-out infinite;
+}
+
+.animate-hablar {
+  animation: hablar 0.8s ease-in-out infinite;
+}
+
+.animate-brazo-bailar {
+  animation: brazo-bailar 1s ease-in-out infinite;
+}
+
+.animate-brazo-señalar {
+  animation: brazo-señalar 1s ease-in-out infinite;
+}
+
+/* Colores de la selva para Taki */
+.bg-selva-primary {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.bg-selva-secondary {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.border-selva {
+  border-color: #16a34a;
+}
+
+/* Animaciones adicionales para elementos tecnológicos de Taki */
+@keyframes flotar-mariposa {
+  0%, 100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) translateX(5px) rotate(5deg);
+  }
+  50% {
+    transform: translateY(-15px) translateX(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-10px) translateX(-5px) rotate(-5deg);
+  }
+}
+
+@keyframes pulsar-wifi {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes brillar-circuito {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-flotar-mariposa {
+  animation: flotar-mariposa 3s ease-in-out infinite;
+}
+
+.animate-pulsar-wifi {
+  animation: pulsar-wifi 2s ease-in-out infinite;
+}
+
+.animate-brillar-circuito {
+  animation: brillar-circuito 2s ease-in-out infinite;
+}
