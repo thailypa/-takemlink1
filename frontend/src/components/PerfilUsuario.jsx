@@ -149,8 +149,14 @@ const PerfilUsuario = ({ usuario, estadisticas, onVolver }) => {
                       downloadLink.href = url;
                       document.body.appendChild(downloadLink);
                       downloadLink.click();
-                      document.body.removeChild(downloadLink);
-                      URL.revokeObjectURL(url);
+                      // Verificar que el elemento existe antes de removerlo
+                      if (downloadLink.parentNode) {
+                        document.body.removeChild(downloadLink);
+                      }
+                      // Usar setTimeout para asegurar que el click se procese
+                      setTimeout(() => {
+                        URL.revokeObjectURL(url);
+                      }, 100);
                     }
                   }}
                   className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg transition-colors flex items-center space-x-2"

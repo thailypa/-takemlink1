@@ -344,12 +344,14 @@ const TakiMonito = ({ ecoPuntos, nivel, onRegistrarResiduo }) => {
       </div>
 
       {/* Panel de Chat de IA */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {mostrarChat && (
           <motion.div
+            key="chat-panel"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
             className="mt-6 border-t pt-6"
           >
             <div className="bg-gray-50 rounded-xl p-4 h-96 flex flex-col">
@@ -460,12 +462,14 @@ const TakiMonito = ({ ecoPuntos, nivel, onRegistrarResiduo }) => {
       </AnimatePresence>
 
       {/* Panel de Videos */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {mostrarVideos && (
           <motion.div
+            key="videos-panel"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
             className="mt-6 border-t pt-6"
           >
             <h3 className="font-bold text-gray-800 mb-4">📺 Videos Educativos</h3>
@@ -489,12 +493,14 @@ const TakiMonito = ({ ecoPuntos, nivel, onRegistrarResiduo }) => {
       </AnimatePresence>
 
       {/* Panel de Documentos */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {mostrarDocumentos && (
           <motion.div
+            key="documentos-panel"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
             className="mt-6 border-t pt-6"
           >
             <h3 className="font-bold text-gray-800 mb-4">📚 Documentos y Guías</h3>
