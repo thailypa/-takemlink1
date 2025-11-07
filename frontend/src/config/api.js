@@ -1,7 +1,8 @@
 // Configuración de la API
 // En desarrollo, usa rutas relativas (el proxy de Vite redirige a localhost:5000)
 // En producción, usa la URL completa desde la variable de entorno
-const API_BASE_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? '' : 'http://localhost:5000');
+// Si no hay VITE_API_URL configurada, muestra un mensaje de error claro
+const API_BASE_URL = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? '' : '');
 
 export const API_ENDPOINTS = {
   // Instituciones
