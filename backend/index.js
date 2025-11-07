@@ -7,8 +7,12 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
-app.use(cors());
+// Middleware CORS - Permitir todas las solicitudes desde cualquier origen
+app.use(cors({
+  origin: '*', // Permitir todos los orígenes (en producción, puedes especificar solo tu dominio de Netlify)
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json({ limit: '10mb' }));
 
 // Datos temporales (luego se conectará a base de datos)
