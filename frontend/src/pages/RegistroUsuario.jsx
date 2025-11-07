@@ -69,7 +69,7 @@ const RegistroUsuario = ({ onRegistroCompleto, onVolver }) => {
       onRegistroCompleto && onRegistroCompleto(usuarioRegistrado);
     } catch (err) {
       if (err.name === 'TypeError' && err.message.includes('fetch')) {
-        setError('No se pudo conectar con el servidor. Por favor, verifique que el backend esté corriendo en http://localhost:5000');
+        setError('No se pudo conectar con el servidor. Por favor, verifique que el backend esté disponible.');
       } else if (err.message.includes('Failed to fetch') || err.message.includes('NetworkError')) {
         setError('Error de conexión. Asegúrese de que el servidor backend esté corriendo.');
       } else {

@@ -28,9 +28,10 @@ const RegistroInstitucion = ({ onVolver, onRegistroCompleto }) => {
       controller = new AbortController();
       
       try {
-        // Usar ruta relativa para que funcione con el proxy de Vite
-        // En desarrollo, el proxy redirige /api/* a http://localhost:5000/api/*
-        const healthUrl = '/api/health';
+        // Usar API_BASE_URL para que funcione tanto en desarrollo como en producción
+        // En desarrollo, API_BASE_URL está vacío, así que usamos ruta relativa (el proxy de Vite redirige)
+        // En producción, API_BASE_URL contiene la URL completa del backend
+        const healthUrl = API_BASE_URL ? `${API_BASE_URL}/api/health` : '/api/health';
         
         console.log('🔍 Verificando servidor en:', healthUrl);
         
@@ -145,7 +146,7 @@ const RegistroInstitucion = ({ onVolver, onRegistroCompleto }) => {
     } catch (err) {
       // Detectar errores de conexión
       if (err.name === 'TypeError' && err.message.includes('fetch')) {
-        setError('No se pudo conectar con el servidor. Por favor, verifique que el backend esté corriendo en http://localhost:5000');
+        setError('No se pudo conectar con el servidor. Por favor, verifique que el backend esté disponible.');
       } else if (err.message.includes('Failed to fetch') || err.message.includes('NetworkError')) {
         setError('Error de conexión. Asegúrese de que el servidor backend esté corriendo.');
       } else {
@@ -336,7 +337,7 @@ const RegistroInstitucion = ({ onVolver, onRegistroCompleto }) => {
               </p>
               <ul className="text-sm mt-2 list-disc list-inside space-y-1">
                 <li>Asegúrese de que el servidor esté corriendo: <code className="bg-yellow-100 px-2 py-1 rounded">cd takemlink/backend && npm start</code></li>
-                <li>Verifique que esté escuchando en <code className="bg-yellow-100 px-2 py-1 rounded">http://localhost:5000</code></li>
+                <li>Verifique que el backend esté disponible y configurado correctamente</li>
                 <li>Revise la consola del navegador (F12) para más detalles</li>
               </ul>
             </div>
@@ -352,7 +353,7 @@ const RegistroInstitucion = ({ onVolver, onRegistroCompleto }) => {
                   <ol className="list-decimal list-inside space-y-1 ml-2">
                     <li>Abrir una terminal y ejecutar: <code className="bg-red-100 px-2 py-1 rounded">cd takemlink/backend</code></li>
                     <li>Iniciar el servidor: <code className="bg-red-100 px-2 py-1 rounded">npm start</code></li>
-                    <li>Esperar a ver el mensaje: <code className="bg-red-100 px-2 py-1 rounded">🌐 Servidor TákemLink corriendo en http://localhost:5000</code></li>
+                    <li>Esperar a ver el mensaje de que el servidor está corriendo</li>
                     <li>Recargar esta página e intentar nuevamente</li>
                   </ol>
                 </div>
